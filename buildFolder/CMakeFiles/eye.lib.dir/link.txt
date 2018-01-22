@@ -1,0 +1,2 @@
+/usr/bin/ar qc libeye.lib.a  CMakeFiles/eye.lib.dir/src/extApi.c.o CMakeFiles/eye.lib.dir/src/extApiPlatform.c.o
+/usr/bin/ranlib libeye.lib.a

@@ -1,0 +1,4 @@
+/home/beccy/Dokumente/5.Semester/SeminarEyeSurgery/buildFolder/CMakeFiles/edit_cache.dir
+/home/beccy/Dokumente/5.Semester/SeminarEyeSurgery/buildFolder/CMakeFiles/rebuild_cache.dir
+/home/beccy/Dokumente/5.Semester/SeminarEyeSurgery/buildFolder/CMakeFiles/EyeSurgery.dir
+/home/beccy/Dokumente/5.Semester/SeminarEyeSurgery/buildFolder/CMakeFiles/eye.lib.dir
