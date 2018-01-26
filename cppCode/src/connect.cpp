@@ -147,7 +147,7 @@ void drawSpiral(int clientID)
         n<<0,0,0,0,0;
         set_joint_positions(clientID,current_position+n);
 
-        int number_sampling_points = 200;
+        int number_sampling_points = 300;
 
         Eigen::VectorXf vx (number_sampling_points); // change in z direction
         Eigen::VectorXf vy (number_sampling_points); // change in y direction
@@ -156,9 +156,9 @@ void drawSpiral(int clientID)
         for (int i = 0; i < number_sampling_points; i++)
         {       
                 float ifloat = i;
-                float value = (1.0/number_sampling_points)*(ifloat+1.0);//Devide the range from 0 to 1 in 500 pieces
-                vz(i,0) = 0.005*std::sin(200*value);
-                vy(i,0) = 0.005*std::cos(200*value);
+                float value = (0.1/1000)*(ifloat+1.0);//Devide the range from 0 to 1 in 500 pieces
+                vz(i,0) = 0.005*std::sin(1000*value);
+                vy(i,0) = 0.005*std::cos(1000*value);
                 vx(i,0) = value;
 
         }
