@@ -15,7 +15,7 @@ extern "C" {
 #include<Eigen/Eigen>
 #include<Jacobian_Pseudoinverse.h>
 
-
+//get the Object needles from v_rep
 Eigen::Matrix<int,5,1> get_Handles(int clientID)
 {
 	Eigen::Matrix<int,5,1> object_handles;
@@ -34,6 +34,7 @@ Eigen::Matrix<int,5,1> get_Handles(int clientID)
 	return object_handles;
 }
 
+//get the joit Positions from v_rep
 Eigen::Matrix<float,5,1> get_joint_positions(int clientID,bool first_call)
 {
 	Eigen::Matrix<int,5,1> object_handles = get_Handles(clientID);
@@ -51,6 +52,7 @@ Eigen::Matrix<float,5,1> get_joint_positions(int clientID,bool first_call)
 	return position;
 }
 
+//set the computed new joint positions in v_rep
 void set_joint_positions(int clientID,Eigen::Matrix<float,5,1> new_position)
 {
 	Eigen::Matrix<int,5,1> object_handles = get_Handles(clientID);
@@ -68,7 +70,9 @@ void set_joint_positions(int clientID,Eigen::Matrix<float,5,1> new_position)
 	simxPauseCommunication(clientID,0);	
 } 
 
- 
+
+//This draws the values from vx,vy,vz in v_rep
+//The number of sampling points is assumed to b the length of the vectors, therefore all of the 3 vectors need to have the same length
 void drawSomething(int clientID, Eigen::VectorXf vx, Eigen::VectorXf vy, Eigen::VectorXf vz, Eigen::Matrix<float,5,1> current_position)
 {
         for (int i = 1; i < vx.size(); i++)
@@ -85,8 +89,9 @@ void drawSomething(int clientID, Eigen::VectorXf vx, Eigen::VectorXf vy, Eigen::
                 set_joint_positions(clientID,(current_position+delta_L));
         }
 }
-//This should one day draw a square right now it draws a line
-//a should be the length of one side of the square
+
+//Draw a sqare in the x,y plane in v_rep
+//The legth denotes the length of the diagonal of the square
 void drawSquare(int clientID, float length)
 {
 	Eigen::Matrix<float,5,1> current_position = get_joint_positions(clientID,false);
@@ -99,7 +104,7 @@ void drawSquare(int clientID, float length)
         Eigen::VectorXf vx (number_sampling_points); // change in x direction
         Eigen::VectorXf vy (number_sampling_points); // change in y direction
         Eigen::VectorXf vz (number_sampling_points); //change in z direction 
-	Eigen::VectorXf nvx (number_sampling_points);
+	Eigen::VectorXf nvx (number_sampling_points);//vx the other way around
 
         for (int i = 0; i < number_sampling_points; i++)
         {
@@ -107,14 +112,16 @@ void drawSquare(int clientID, float length)
                 vx(i,0) =  value;
                 vy(i,0) = value;
 	 	vz(i,0) = 0;
-		nvx(number_sampling_points-(i+1),0) = value; //Initialize the vector the other way around ..
+		nvx(number_sampling_points-(i+1),0) = value;
         }
+	//nvx can also be used as inverted vy since they are equally initialized
         drawSomething(clientID,vx,vy,vz,current_position);
 	drawSomething(clientID,nvx,vy,vz,current_position);
 	drawSomething(clientID,nvx,nvx,vz,current_position);
 	drawSomething(clientID,vx,nvx,vz,current_position);
-
 }
+
+//Draw a circle in the z,y plane 
 void drawCircle(int clientID)
 {
 	Eigen::Matrix<float,5,1> current_position = get_joint_positions(clientID,false);
@@ -131,7 +138,7 @@ void drawCircle(int clientID)
 	for (int i = 0; i < number_sampling_points; i++)
 	{
 		float ifloat = i;
-		float value = (1.0/number_sampling_points)*(ifloat+1.0);//Devide the range from 0 to 1 in 500 pieces
+		float value = (1.0/number_sampling_points)*(ifloat+1.0);//Devide the range from 0 to 1 in number_sampling_points pieces
 		vz(i,0) = 0.01*std::sin(2*M_PI*value);
 		vy(i,0) = 0.01*std::cos(2*M_PI*value);
 		vx(i,0) = 0;
@@ -165,15 +172,53 @@ void drawSpiral(int clientID)
         drawSomething(clientID,vx,vy,vz,current_position);
 }
 
+void drawHaert(int clientID)
+{
+        Eigen::Matrix<float,5,1> current_position = get_joint_positions(clientID,false);
+        Eigen::Matrix<float,5,1> n;
+        n<<0,0,0,0,0;
+        set_joint_positions(clientID,current_position+n);
 
+        int number_sampling_points = 50;//Number of sampling points per half cicle
+	float r = 0.005; //Radius of the two small cicles
+
+	Eigen::VectorXf vs (number_sampling_points);
+	Eigen::VectorXf vc (number_sampling_points);
+        Eigen::VectorXf vx (number_sampling_points); // change in x direction
+        Eigen::VectorXf vy (number_sampling_points); // change in y direction
+        Eigen::VectorXf vz (number_sampling_points); //change in z direction
+	Eigen::VectorXf vxn (number_sampling_points); //vx the other way around
+	
+        for (int i = 0; i < number_sampling_points; i++)
+        {
+                float ifloat = i;
+                float value = (1.0/number_sampling_points)*(ifloat+1.0);//Devide the range from 0 to 1 in number_sampling_points pieces
+                vs(i,0) = r*std::sin(M_PI*value);
+                vc(i,0) = r*std::cos(M_PI*value);
+		vx(i,0) = ((3*r)/number_sampling_points)*(ifloat+1.0);
+		vy(i,0) = ((2*r)/number_sampling_points)*(ifloat+1.0);
+                vz(i,0) = 0;
+		vxn(number_sampling_points-1-i,0) = vx(i,0); 
+
+        }
+	//Draw two half cicles
+        drawSomething(clientID,vs,vc,vz,current_position);
+	drawSomething(clientID,vs,vc,vz,current_position);
+
+	//Draw two other lines
+	drawSomething(clientID,vxn,vy,vz,current_position);
+	drawSomething(clientID,vx,vy,vz,current_position);
+	
+}
+
+	
 int main(int argc, char* argv[])
 {
 	int portNb = 19999;
-	//portNb = atoi(argv[1]);
-	//std::cout<<"Got until here, Portnumber: "<<portNb;
+	portNb = atoi(argv[1]);
 
 	int clientID = simxStart((simxChar*)"127.0.0.1",portNb,true,true,2000,5);
-	std::cout<<"Survived simxStart() clientID:"<<clientID<<std::endl;
+
 	if(clientID >= 0)
 	{
 		std::cout<<"Connected :)";
@@ -208,7 +253,7 @@ int main(int argc, char* argv[])
 		
 		std::cout<<"Initialization done start working"<<std::endl;
 		//Now we can start do something
-		drawSpiral(clientID);	
+		drawHaert(clientID);	
 	simxFinish(clientID);
 	}
 return(0);
