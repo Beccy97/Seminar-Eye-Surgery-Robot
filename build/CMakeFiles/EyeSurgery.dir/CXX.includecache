@@ -29,6 +29,8 @@ iostream
 -
 cstdlib
 -
+chrono
+-
 cmath
 -
 memory
@@ -37,7 +39,9 @@ vector
 -
 math.h
 -
-pthread.h
+chrono
+-
+thread
 -
 extApi.h
 /home/beccy/Dokumente/5.Semester/SeminarEyeSurgery/Seminar-Eye-Surgery-Robot/cppCode/src/extApi.h

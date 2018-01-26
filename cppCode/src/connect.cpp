@@ -1,14 +1,15 @@
 #include<iostream>
 #include<cstdlib>
+#include<chrono>
 #include<cmath>
 #include<memory>
 #include<vector>
 #include<math.h>
-#include<pthread.h>
+#include<chrono>
+#include<thread>
 extern "C" {
 	#include "extApi.h"
 	}
-//#include<extApi.h>
 #include<extApiPlatform.h>
 #include<v_repConst.h>
 #include<string>
@@ -214,15 +215,18 @@ void drawHaert(int clientID)
 	
 int main(int argc, char* argv[])
 {
+	//take the time to compare this c++ implemetation with the one using matlab
+	std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
+
 	int portNb = 19999;
-	portNb = atoi(argv[1]);
+	//portNb = atoi(argv[1]);
 
 	int clientID = simxStart((simxChar*)"127.0.0.1",portNb,true,true,2000,5);
 
 	if(clientID >= 0)
 	{
 		std::cout<<"Connected :)";
-
+		float start = simGetSimulationTime();	
 		//Handles
 		int needle_tip_handle;
 		int target_handle;
@@ -254,8 +258,13 @@ int main(int argc, char* argv[])
 		std::cout<<"Initialization done start working"<<std::endl;
 		//Now we can start do something
 		drawHaert(clientID);	
+
 	simxFinish(clientID);
 	}
+	//std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
+	std::chrono::time_point<std::chrono::system_clock> end = std::chrono::system_clock::now();
+	std::chrono::duration<double> elapsed = end- b;	
+	std::cout<<"Elapsed time: " <<elapsed.count()<<"s"<<std::endl;
 return(0);
 }
 
