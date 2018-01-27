@@ -1,0 +1,34 @@
+﻿  Building Custom Rule C:/Users/Beccy/Documents/GitHub/Seminar-Eye-Surgery-Robot/cppCode/CMakeLists.txt
+  CMake does not need to re-run because C:/Users/Beccy/Documents/GitHub/Seminar-Eye-Surgery-Robot/build/CMakeFiles/generate.stamp is up-to-date.
+  connect.cpp
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\connect.cpp(84): warning C4305: "Argument": Verkürzung von "double" in "const float"
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\connect.cpp(142): warning C4244: "Initialisierung": Konvertierung von "int" in "float", möglicher Datenverlust
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\connect.cpp(143): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\connect.cpp(144): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\connect.cpp(145): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\connect.cpp(167): warning C4244: "Initialisierung": Konvertierung von "int" in "float", möglicher Datenverlust
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\connect.cpp(168): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\connect.cpp(169): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\connect.cpp(170): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\connect.cpp(185): warning C4305: "Initialisierung": Verkürzung von "double" in "float"
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\connect.cpp(196): warning C4244: "Initialisierung": Konvertierung von "int" in "float", möglicher Datenverlust
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\connect.cpp(197): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\connect.cpp(198): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\connect.cpp(199): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\connect.cpp(200): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\connect.cpp(201): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\connect.cpp(263): warning C4305: "Argument": Verkürzung von "double" in "float"
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.12.25827\include\memory(1849): warning C4244: "Initialisierung": Konvertierung von "int" in "float", möglicher Datenverlust
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.12.25827\include\memory(1914): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-Vorlage "std::_Ref_count_obj<_Ty>::_Ref_count_obj<int>(int &&)".
+          with
+          [
+              _Ty=float
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.12.25827\include\memory(1914): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-Vorlage "std::_Ref_count_obj<_Ty>::_Ref_count_obj<int>(int &&)".
+          with
+          [
+              _Ty=float
+          ]
+  C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\connect.cpp(247): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-Vorlage "std::shared_ptr<float> std::make_shared<float,int>(int &&)".
+     Bibliothek "C:/Users/Beccy/Documents/GitHub/Seminar-Eye-Surgery-Robot/build/Debug/EyeSurgery.bin.lib" und Objekt "C:/Users/Beccy/Documents/GitHub/Seminar-Eye-Surgery-Robot/build/Debug/EyeSurgery.bin.exp" werden erstellt.
+  EyeSurgery.bin.vcxproj -> C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\build\Debug\EyeSurgery.bin.exe

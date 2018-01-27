@@ -1,2 +1,0 @@
-/usr/bin/ar qc libeye.lib.a  CMakeFiles/eye.lib.dir/src/extApi.c.o CMakeFiles/eye.lib.dir/src/extApiPlatform.c.o CMakeFiles/eye.lib.dir/src/Jacobian_Pseudoinverse.cpp.o CMakeFiles/eye.lib.dir/src/Forward_Kinematics.cpp.o
-/usr/bin/ranlib libeye.lib.a

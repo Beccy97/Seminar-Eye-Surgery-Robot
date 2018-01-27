@@ -1,4 +1,4 @@
-/home/beccy/Dokumente/5.Semester/SeminarEyeSurgery/Seminar-Eye-Surgery-Robot/build/CMakeFiles/edit_cache.dir
-/home/beccy/Dokumente/5.Semester/SeminarEyeSurgery/Seminar-Eye-Surgery-Robot/build/CMakeFiles/rebuild_cache.dir
-/home/beccy/Dokumente/5.Semester/SeminarEyeSurgery/Seminar-Eye-Surgery-Robot/build/CMakeFiles/EyeSurgery.dir
-/home/beccy/Dokumente/5.Semester/SeminarEyeSurgery/Seminar-Eye-Surgery-Robot/build/CMakeFiles/eye.lib.dir
+C:/Users/Beccy/Documents/GitHub/Seminar-Eye-Surgery-Robot/build/CMakeFiles/eye.lib.dir
+C:/Users/Beccy/Documents/GitHub/Seminar-Eye-Surgery-Robot/build/CMakeFiles/EyeSurgery.bin.dir
+C:/Users/Beccy/Documents/GitHub/Seminar-Eye-Surgery-Robot/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/Beccy/Documents/GitHub/Seminar-Eye-Surgery-Robot/build/CMakeFiles/ZERO_CHECK.dir

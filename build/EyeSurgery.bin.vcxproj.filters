@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\connect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4A44392D-8379-39F6-9381-76FFFD57EBC4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

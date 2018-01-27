@@ -1,0 +1,32 @@
+﻿  Building Custom Rule C:/Users/Beccy/Documents/GitHub/Seminar-Eye-Surgery-Robot/cppCode/CMakeLists.txt
+  CMake does not need to re-run because C:/Users/Beccy/Documents/GitHub/Seminar-Eye-Surgery-Robot/build/CMakeFiles/generate.stamp is up-to-date.
+  extApi.c
+  extApiPlatform.c
+  Adding library: Winmm.lib
+  Adding library: Ws2_32.lib
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\extApiPlatform.c(231): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\stdio.h(207): note: Siehe Deklaration von "fopen"
+  Code wird generiert...
+  Jacobian_Pseudoinverse.cpp
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\Jacobian_Pseudoinverse.cpp(12): warning C4305: "Initialisierung": Verkürzung von "double" in "float"
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\Jacobian_Pseudoinverse.cpp(13): warning C4305: "Initialisierung": Verkürzung von "double" in "float"
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\Jacobian_Pseudoinverse.cpp(14): warning C4305: "Initialisierung": Verkürzung von "double" in "float"
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\Jacobian_Pseudoinverse.cpp(15): warning C4305: "Initialisierung": Verkürzung von "double" in "float"
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\Jacobian_Pseudoinverse.cpp(16): warning C4305: "Initialisierung": Verkürzung von "double" in "float"
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\Jacobian_Pseudoinverse.cpp(17): warning C4305: "Initialisierung": Verkürzung von "double" in "float"
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\Jacobian_Pseudoinverse.cpp(23): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\Jacobian_Pseudoinverse.cpp(25): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\Jacobian_Pseudoinverse.cpp(54): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\Jacobian_Pseudoinverse.cpp(55): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\Jacobian_Pseudoinverse.cpp(56): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\Jacobian_Pseudoinverse.cpp(57): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+  Forward_Kinematics.cpp
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\Forward_Kinematics.cpp(14): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\Forward_Kinematics.cpp(15): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\Forward_Kinematics.cpp(23): warning C4305: "Initialisierung": Verkürzung von "double" in "float"
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\Forward_Kinematics.cpp(25): warning C4305: "Initialisierung": Verkürzung von "double" in "float"
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\Forward_Kinematics.cpp(27): warning C4305: "Initialisierung": Verkürzung von "double" in "float"
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\Forward_Kinematics.cpp(28): warning C4305: "Initialisierung": Verkürzung von "double" in "float"
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\cppCode\src\Forward_Kinematics.cpp(30): warning C4305: "Initialisierung": Verkürzung von "double" in "float"
+  Code wird generiert...
+  eye.lib.vcxproj -> C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\build\Debug\eye.lib.lib

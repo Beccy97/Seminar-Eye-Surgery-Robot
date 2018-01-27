@@ -23,28 +23,26 @@ if (clientID>-1)
     [~,angle_error]=vrep.simxGetObjectOrientation(clientID,target,needle_tip,vrep.simx_opmode_buffer);
     [~,target_position]=vrep.simxGetObjectPosition(clientID,target,base,vrep.simx_opmode_blocking);
 
-    %draw a spiral
-
-%     current_position=get_joint_positions(vrep,clientID,0); % get the robot position from vrep
-%     set_joint_positions(vrep,clientID,current_position+[0,0,0,0,0]); % set the position in matlab with same coords from vrep
-%     
-% %     for i=0:10
-% %         set_joint_positions(vrep,clientID,get_joint_positions(vrep,clientID,0)+[0,0,0.001,0.001,0])
-% %         pause(1);
-% %     end
-%     
-%     t=linspace(0,0.10,1000); % divide range from 0 to 0.1 into 1000 equivalent parts (x - direction)
-%    v=0.005*sin(1000*t); % z velocity
-%    v0 = t * 0; % x velocity
-%    v2=0.005*cos(1000*t); % y velocity
-%    
-%     for i=2:500
-%       
-%         current_position=get_joint_positions(vrep,clientID,0);
-%         calculation_position=current_position+[+0.0152,-0.0103,-0.0038,+0.0038,0];
-%         delta_L=Jacobian_pseudoinverse(calculation_position,[t(i)-t(i-1);v2(i)-v2(i-1);v(i)-v(i-1);0;0;0]) % calculate delta
-%         set_joint_positions(vrep,clientID,current_position+delta_L); % set new point
+    %Draw Spiral
+    current_position=get_joint_positions(vrep,clientID,0);
+    set_joint_positions(vrep,clientID,current_position+[0,0,0,0,0]);
+    
+%     for i=0:10
+%         set_joint_positions(vrep,clientID,get_joint_positions(vrep,clientID,0)+[0,0,0.001,0.001,0])
+%         pause(1);
 %     end
+    
+    t=linspace(0,0.10,1000);
+    v=0.005*sin(1000*t);
+    v2=0.005*cos(1000*t);
+   
+    for i=2:300
+      
+        current_position=get_joint_positions(vrep,clientID,0);
+        calculation_position=current_position+[+0.0152,-0.0103,-0.0038,+0.0038,0];
+        delta_L=Jacobian_pseudoinverse(calculation_position,[t(i)-t(i-1);v2(i)-v2(i-1);v(i)-v(i-1);0;0;0])
+        set_joint_positions(vrep,clientID,current_position+delta_L);
+   end
 
     % draw square
     
@@ -92,61 +90,61 @@ if (clientID>-1)
 %     end
     
     
-    % draw heart
-    
-    current_position=get_joint_positions(vrep,clientID,0); % get the robot position from vrep
-    set_joint_positions(vrep,clientID,current_position+[0,0,0,0,0]); % set the position in matlab with same coords from vrep
-    
-   r = 0.005 ; %Radius of the two small circles
-   sampling_points_per_half_circle = 50; %Number of Sampling points used for each of the first 2 Half Circles
-   
-   t=linspace(0,1,sampling_points_per_half_circle); % divide range from 0 to 1 into  sampling_points_per_half_circle equivalent parts 
-   vs=r*sin(pi*t); % Vector of lentgth sampling_points_per_half_circle sampling the first half of sin 
-   v0 = t * 0; % 0 Vector of length sampling_points_per_half_circle 
-   vc=r*cos(pi*t); % Vector of length sampling_points_per_half_circle sampling the first half of cos
-   
-   %Draw two half circles of rad r laying in the x,y plane dimension
-    for i=2:sampling_points_per_half_circle 
-      
-        current_position=get_joint_positions(vrep,clientID,0);
-        calculation_position=current_position+[+0.0152,-0.0152,-0.0038,+0.0038,0];
-        delta_L=Jacobian_pseudoinverse(calculation_position,[vs(i)-vs(i-1);vc(i)-vc(i-1);v0(i)-v0(i-1);0;0;0]) % calculate delta
-        set_joint_positions(vrep,clientID,current_position+delta_L); % set new point
-    end
-    
-    for i=2:sampling_points_per_half_circle
-      
-        current_position=get_joint_positions(vrep,clientID,0);
-        calculation_position=current_position+[+0.0152,-0.0152,-0.0038,+0.0038,0];
-        delta_L=Jacobian_pseudoinverse(calculation_position,[vs(i)-vs(i-1);vc(i)-vc(i-1);v0(i)-v0(i-1);0;0;0]) % calculate delta
-        set_joint_positions(vrep,clientID,current_position+delta_L); % set new point
-    end
-    
-    % herz unterseite beginn
-    % Achtung von den Koordinaten her steht das Herz auf dem Kopf !!
-    
-    number_of_sampling_points_per_line = 50; 
-    vx = linspace(0,3*r,number_of_sampling_points_per_line); %Die Spitze des Herzes sollte die Koordinaten x = -3r und y = -r haben 
-    vy = linspace(0,2*r,number_of_sampling_points_per_line); %(Sonst siehts komisch aus)
-    
-    % Draw Line up to the top
-    for i=2:number_of_sampling_points_per_line
-      
-        current_position=get_joint_positions(vrep,clientID,0);
-        calculation_position=current_position+[+0.0152,-0.0152,-0.0038,+0.0038,0];
-        delta_L=Jacobian_pseudoinverse(calculation_position,[-(vx(i)-vx(i-1));vy(i)-vy(i-1);v0(i)-v0(i-1);0;0;0]) % calculate delta
-        set_joint_positions(vrep,clientID,current_position+delta_L); % set new point
-    end
-    
-     %Draw the "Back Line"
-     for i=2:number_of_sampling_points_per_line
-      
-        current_position=get_joint_positions(vrep,clientID,0);
-        calculation_position=current_position+[+0.0152,-0.0152,-0.0038,+0.0038,0];
-        delta_L=Jacobian_pseudoinverse(calculation_position,[vx(i)-vx(i-1);vy(i)-vy(i-1);v0(i)-v0(i-1);0;0;0]) % calculate delta
-        set_joint_positions(vrep,clientID,current_position+delta_L); % set new point
-    end
-    
+%     % draw heart
+%     
+%     current_position=get_joint_positions(vrep,clientID,0); % get the robot position from vrep
+%     set_joint_positions(vrep,clientID,current_position+[0,0,0,0,0]); % set the position in matlab with same coords from vrep
+%     
+%    r = 0.005 ; %Radius of the two small circles
+%    sampling_points_per_half_circle = 50; %Number of Sampling points used for each of the first 2 Half Circles
+%    
+%    t=linspace(0,1,sampling_points_per_half_circle); % divide range from 0 to 1 into  sampling_points_per_half_circle equivalent parts 
+%    vs=r*sin(pi*t); % Vector of lentgth sampling_points_per_half_circle sampling the first half of sin 
+%    v0 = t * 0; % 0 Vector of length sampling_points_per_half_circle 
+%    vc=r*cos(pi*t); % Vector of length sampling_points_per_half_circle sampling the first half of cos
+%    
+%    %Draw two half circles of rad r laying in the x,y plane dimension
+%     for i=2:sampling_points_per_half_circle 
+%       
+%         current_position=get_joint_positions(vrep,clientID,0);
+%         calculation_position=current_position+[+0.0152,-0.0152,-0.0038,+0.0038,0];
+%         delta_L=Jacobian_pseudoinverse(calculation_position,[vs(i)-vs(i-1);vc(i)-vc(i-1);v0(i)-v0(i-1);0;0;0]) % calculate delta
+%         set_joint_positions(vrep,clientID,current_position+delta_L); % set new point
+%     end
+%     
+%     for i=2:sampling_points_per_half_circle
+%       
+%         current_position=get_joint_positions(vrep,clientID,0);
+%         calculation_position=current_position+[+0.0152,-0.0152,-0.0038,+0.0038,0];
+%         delta_L=Jacobian_pseudoinverse(calculation_position,[vs(i)-vs(i-1);vc(i)-vc(i-1);v0(i)-v0(i-1);0;0;0]) % calculate delta
+%         set_joint_positions(vrep,clientID,current_position+delta_L); % set new point
+%     end
+%     
+%     % herz unterseite beginn
+%     % Achtung von den Koordinaten her steht das Herz auf dem Kopf !!
+%     
+%     number_of_sampling_points_per_line = 50; 
+%     vx = linspace(0,3*r,number_of_sampling_points_per_line); %Die Spitze des Herzes sollte die Koordinaten x = -3r und y = -r haben 
+%     vy = linspace(0,2*r,number_of_sampling_points_per_line); %(Sonst siehts komisch aus)
+%     
+%     % Draw Line up to the top
+%     for i=2:number_of_sampling_points_per_line
+%       
+%         current_position=get_joint_positions(vrep,clientID,0);
+%         calculation_position=current_position+[+0.0152,-0.0152,-0.0038,+0.0038,0];
+%         delta_L=Jacobian_pseudoinverse(calculation_position,[-(vx(i)-vx(i-1));vy(i)-vy(i-1);v0(i)-v0(i-1);0;0;0]) % calculate delta
+%         set_joint_positions(vrep,clientID,current_position+delta_L); % set new point
+%     end
+%     
+%      %Draw the "Back Line"
+%      for i=2:number_of_sampling_points_per_line
+%       
+%         current_position=get_joint_positions(vrep,clientID,0);
+%         calculation_position=current_position+[+0.0152,-0.0152,-0.0038,+0.0038,0];
+%         delta_L=Jacobian_pseudoinverse(calculation_position,[vx(i)-vx(i-1);vy(i)-vy(i-1);v0(i)-v0(i-1);0;0;0]) % calculate delta
+%         set_joint_positions(vrep,clientID,current_position+delta_L); % set new point
+%     end
+%     
    
 %       move to the target position in a straight line
      

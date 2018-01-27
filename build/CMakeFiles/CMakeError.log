@@ -1,35 +1,38 @@
-Determining if the pthread_create exist failed with the following output:
-Change Dir: /home/beccy/Dokumente/5.Semester/SeminarEyeSurgery/Seminar-Eye-Surgery-Robot/build/CMakeFiles/CMakeTmp
+Determining if the include file pthread.h exists failed with the following output:
+Change Dir: C:/Users/Beccy/Documents/GitHub/Seminar-Eye-Surgery-Robot/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_260da/fast"
-/usr/bin/make -f CMakeFiles/cmTC_260da.dir/build.make CMakeFiles/cmTC_260da.dir/build
-make[1]: Entering directory '/home/beccy/Dokumente/5.Semester/SeminarEyeSurgery/Seminar-Eye-Surgery-Robot/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_260da.dir/CheckSymbolExists.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_260da.dir/CheckSymbolExists.c.o   -c /home/beccy/Dokumente/5.Semester/SeminarEyeSurgery/Seminar-Eye-Surgery-Robot/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_260da
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_260da.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_260da.dir/CheckSymbolExists.c.o  -o cmTC_260da 
-CMakeFiles/cmTC_260da.dir/CheckSymbolExists.c.o: In function `main':
-CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
-collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_260da.dir/build.make:97: recipe for target 'cmTC_260da' failed
-make[1]: *** [cmTC_260da] Error 1
-make[1]: Leaving directory '/home/beccy/Dokumente/5.Semester/SeminarEyeSurgery/Seminar-Eye-Surgery-Robot/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_260da/fast' failed
-make: *** [cmTC_260da/fast] Error 2
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_26f67.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R)-Buildmodul, Version 15.5.180.51428 fr .NET Framework
+Copyright (C) Microsoft Corporation. Alle Rechte vorbehalten.
+
+Der Buildvorgang wurde am 27.01.2018 15:58:14 gestartet.
+Projekt "C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\build\CMakeFiles\CMakeTmp\cmTC_26f67.vcxproj" auf Knoten "1" (Standardziele).
+PrepareForBuild:
+  Das Verzeichnis "cmTC_26f67.dir\Debug\" wird erstellt.
+  Das Verzeichnis "C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\build\CMakeFiles\CMakeTmp\Debug\" wird erstellt.
+  Das Verzeichnis "cmTC_26f67.dir\Debug\cmTC_26f67.tlog\" wird erstellt.
+InitializeBuildStatus:
+  "cmTC_26f67.dir\Debug\cmTC_26f67.tlog\unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.12.25827\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_26f67.dir\Debug\\" /Fd"cmTC_26f67.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  Microsoft (R) C/C++-Optimierungscompiler Version 19.12.25835 fr x86
+  Copyright (C) Microsoft Corporation. Alle Rechte vorbehalten.
+  
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_26f67.dir\Debug\\" /Fd"cmTC_26f67.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  
+C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1): fatal error C1083: Datei (Include) kann nicht ge”ffnet werden: "pthread.h": No such file or directory [C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\build\CMakeFiles\CMakeTmp\cmTC_26f67.vcxproj]
+Die Erstellung des Projekts "C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\build\CMakeFiles\CMakeTmp\cmTC_26f67.vcxproj" ist abgeschlossen (Standardziele) -- FEHLER.
+
+Fehler beim Buildvorgang.
+
+"C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\build\CMakeFiles\CMakeTmp\cmTC_26f67.vcxproj" (Standardziel) (1) ->
+(ClCompile Ziel) -> 
+  C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1): fatal error C1083: Datei (Include) kann nicht ge”ffnet werden: "pthread.h": No such file or directory [C:\Users\Beccy\Documents\GitHub\Seminar-Eye-Surgery-Robot\build\CMakeFiles\CMakeTmp\cmTC_26f67.vcxproj]
+
+    0 Warnung(en)
+    1 Fehler
+
+Verstrichene Zeit 00:00:01.88
 
-File /home/beccy/Dokumente/5.Semester/SeminarEyeSurgery/Seminar-Eye-Surgery-Robot/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
-/* */
-#include <pthread.h>
-
-int main(int argc, char** argv)
-{
-  (void)argv;
-#ifndef pthread_create
-  return ((int*)(&pthread_create))[argc];
-#else
-  (void)argc;
-  return 0;
-#endif
-}
 

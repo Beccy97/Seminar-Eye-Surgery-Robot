@@ -1,3 +1,4 @@
+#define _USE_MATH_DEFINES 
 #include<iostream>
 #include<cstdlib>
 #include<chrono>
@@ -155,7 +156,7 @@ void drawSpiral(int clientID)
         n<<0,0,0,0,0;
         set_joint_positions(clientID,current_position+n);
 
-        int number_sampling_points = 500;
+        int number_sampling_points = 300;
 
         Eigen::VectorXf vx (number_sampling_points); // change in z direction
         Eigen::VectorXf vy (number_sampling_points); // change in y direction
@@ -257,9 +258,9 @@ int main(int argc, char* argv[])
 		
 		std::cout<<"Initialization done start working"<<std::endl;
 		//Now we can start do something
-		drawHaert(clientID);
+		//drawHaert(clientID);
 		//drawSpiral(clientID);
-		//drawSquare(clientID,0.02);
+		drawSquare(clientID,0.02);
 		//drawCircle();	
 
 	simxFinish(clientID);
