@@ -100,7 +100,7 @@ void drawSquare(int clientID, float length)
         n<<0,0,0,0,0;
         set_joint_positions(clientID,current_position+n);
 
-        int number_sampling_points = 100;
+        int number_sampling_points = 50;//Number of sampling points per edge
 
         Eigen::VectorXf vx (number_sampling_points); // change in x direction
         Eigen::VectorXf vy (number_sampling_points); // change in y direction
@@ -155,7 +155,7 @@ void drawSpiral(int clientID)
         n<<0,0,0,0,0;
         set_joint_positions(clientID,current_position+n);
 
-        int number_sampling_points = 300;
+        int number_sampling_points = 500;
 
         Eigen::VectorXf vx (number_sampling_points); // change in z direction
         Eigen::VectorXf vy (number_sampling_points); // change in y direction
@@ -216,7 +216,8 @@ void drawHaert(int clientID)
 int main(int argc, char* argv[])
 {
 	//take the time to compare this c++ implemetation with the one using matlab
-	std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
+	
+	std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
 
 	int portNb = 19999;
 	//portNb = atoi(argv[1]);
@@ -225,8 +226,7 @@ int main(int argc, char* argv[])
 
 	if(clientID >= 0)
 	{
-		std::cout<<"Connected :)";
-		float start = simGetSimulationTime();	
+		std::cout<<"Connected :)";	
 		//Handles
 		int needle_tip_handle;
 		int target_handle;
@@ -257,14 +257,17 @@ int main(int argc, char* argv[])
 		
 		std::cout<<"Initialization done start working"<<std::endl;
 		//Now we can start do something
-		drawHaert(clientID);	
+		drawHaert(clientID);
+		//drawSpiral(clientID);
+		//drawSquare(clientID,0.02);
+		//drawCircle();	
 
 	simxFinish(clientID);
 	}
 	//std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
-	std::chrono::time_point<std::chrono::system_clock> end = std::chrono::system_clock::now();
-	std::chrono::duration<double> elapsed = end- b;	
-	std::cout<<"Elapsed time: " <<elapsed.count()<<"s"<<std::endl;
+	std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed = end- start;	
+	std::cout<<"Elapsed time: " <<(end-start).count()<<"s"<<std::endl;
 return(0);
 }
 

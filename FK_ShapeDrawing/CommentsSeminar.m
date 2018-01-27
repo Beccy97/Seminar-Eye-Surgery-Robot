@@ -1,8 +1,8 @@
 clear
 clc
-
 vrep=remApi('remoteApi');
 vrep.simxFinish(-1);
+tic
 clientID=vrep.simxStart('127.0.0.1',19999,true,true,5000,5);
 
 if (clientID>-1)
@@ -166,5 +166,6 @@ if (clientID>-1)
 
     vrep.simxFinish(-1);
 end
+toc
 
 vrep.delete();
