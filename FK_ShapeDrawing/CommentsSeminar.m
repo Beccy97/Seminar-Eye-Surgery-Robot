@@ -146,21 +146,24 @@ if (clientID>-1)
     end
     
    
-%       move to the target position in a straight line
-     
-%     step_width=0.001; %take 1mm-steps
-%     target_vector=target_position-needle_position;
+% Draw Circle in z,y plane 
+
+%     current_position=get_joint_positions(vrep,clientID,0);
+%     set_joint_positions(vrep,clientID,current_position+[0,0,0,0,0]);
 % 
-%     while (norm(target_vector) > step_width)
+%     
+%     t=linspace(0,1);
+%     v=0.005*sin(2*pi*t);
+%     v2=0.005*cos(2*pi*t);
+%    
+%     for i=2:300
+%       
 %         current_position=get_joint_positions(vrep,clientID,0);
-%         step=target_vector/(norm(target_vector)*(1/step_width))
 %         calculation_position=current_position+[+0.0152,-0.0103,-0.0038,+0.0038,0];
-%         delta_L=Jacobian_pseudoinverse(calculation_position,[step(1);step(2);step(3);0;0;0])
+%         delta_L=Jacobian_pseudoinverse(calculation_position,[0;v2(i)-v2(i-1);v(i)-v(i-1);0;0;0])
 %         set_joint_positions(vrep,clientID,current_position+delta_L);
-%         [~,needle_position]=vrep.simxGetObjectPosition(clientID,needle_tip,calculation_zero,vrep.simx_opmode_buffer);
-%         [~,target_position]=vrep.simxGetObjectPosition(clientID,target,calculation_zero,vrep.simx_opmode_blocking);
-%         target_vector=target_position-needle_position;
-%     end
+%    end
+
 
     vrep.simxFinish(-1);
 end
